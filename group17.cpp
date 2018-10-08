@@ -14,13 +14,7 @@ Hero initialize(Hero user, string name)
 
 int main()
 {
-    // Rooms
-    Hero seanRoom;
-    Hero jakeRoom;
-
-    // Vars
     int doorChoice;
-    bool isValid;
     string name;
 
     cout << "Choose your name: " << endl;
@@ -32,21 +26,31 @@ int main()
     cout << "You enter a large area with four doors, choose between 1-4 to enter: " << endl;
     cin >> doorChoice;
 
-    isValid = checkDoorChoice(doorChoice);
-
-    if (isValid == true)
+    if (checkDoorChoice(doorChoice) == true)
     {
-        switch(doorChoice)
+        playGame(&user, doorChoice);   
+    }
+
+    while(true)
+    {
+        cout << "You enter a large area with four doors, choose between 1-4 to enter: " << endl;
+        cin >> doorChoice;
+
+        if (checkDoorChoice(doorChoice) == true)
         {
-            case 1:
-                jakeRoom = jgrout(&user);
+            if (doorChoice == 4)
+            {
+                endGame(&user);
                 break;
-            case 2:
-                seanRoom = ssoberoi(&user);
-                break;
-            default:
-                cout << "Invalid choice, exiting now!" << endl;
-                break;
+            }
+            else
+            {
+                playGame(&user, doorChoice);
+            }
+        }
+        else
+        {
+            break;
         }
     }
 }
@@ -61,4 +65,39 @@ bool checkDoorChoice(int choice)
     {
         return false;
     }
+}
+
+int playGame(Hero* user, int doorChoice)
+{
+    // Rooms
+    Hero seanRoom;
+    Hero jakeRoom;
+
+    switch(doorChoice)
+    {
+        case 1:
+            jakeRoom = jgrout(user);
+            break;
+        case 2:
+            seanRoom = ssoberoi(user);
+            break;
+        default:
+            cout << "Invalid choice, exiting now!" << endl;
+            break;
+    }
+
+    return 0;
+}
+
+int endGame(Hero* user)
+{
+    cout << "========== RESULTS ============" << endl;
+
+    cout << "Health: " << user->health << endl;
+    cout << "Gold: " << user->gold << endl;
+    cout << "Key: " << user->key << endl;
+
+    cout << "=============================" << endl;
+
+    return 0;
 }

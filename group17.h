@@ -19,6 +19,8 @@ Hero afajhan(Hero* protagonist);
 Hero initialize(Hero hero, string name);
 
 // Main
+int playGame(Hero* protagonist, int doorChoice);
+int endGame(Hero* protagonist);
 bool checkDoorChoice(int choice);
 
 //Jake
