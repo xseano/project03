@@ -57,10 +57,13 @@ Hero openDoor(Hero* protagonist)
 Hero enterChest(Hero* protagonist)
 {
     int choice;
+    int newGold = getRandomAmount(50);
+    int newHealth = getRandomAmount(25);
 
-    cout << "You found a health potion (5 health pts) and 25 gold, congrats!" << endl;
-    protagonist->gold += 25;
-    protagonist->health += 5;
+    cout << "You found a health potion and gold sack giving you +" << newHealth << " health pts and +" << newGold << " gold." << endl;
+
+    protagonist->gold += newGold;
+    protagonist->health += newHealth;
 
     cout << "You can either go through the door across the room (1), or leave through the door you came through (2)."<< endl;
     cin >> choice;
@@ -83,9 +86,13 @@ Hero enterChest(Hero* protagonist)
 
 Hero enterChest2(Hero* protagonist)
 {
-    cout << "You found a health potion (10 health pts) and 10 gold, congrats!" << endl;
-    protagonist->gold += 10;
-    protagonist->health += 10;
+    int newGold = getRandomAmount(50);
+    int newHealth = getRandomAmount(25);
+
+    cout << "You found a health potion and gold sack giving you +" << newHealth << " health pts and +" << newGold << " gold." << endl;
+
+    protagonist->gold += newGold;
+    protagonist->health += newHealth;
 
     exitRoom(protagonist);
 

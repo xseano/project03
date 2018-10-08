@@ -68,7 +68,7 @@ Hero openChest(Hero* protagonist)
     int newGold = getRandomAmount(50);
     int newHealth = getRandomAmount(25);
     
-    cout << "You found a large health potion and small gold sack giving you +" << newHealth <<" health pts and +" << newGold << " gold." << endl;
+    cout << "You found a health potion and gold sack giving you +" << newHealth << " health pts and +" << newGold << " gold." << endl;
 
     protagonist->gold += newGold;
     protagonist->health += newHealth;
