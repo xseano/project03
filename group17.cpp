@@ -1,5 +1,6 @@
 #include "group17.h"
 #define INVENTORY_LEN 2
+#define ROOM_LEN 4
 
 Hero initialize(Hero user, string name)
 {
@@ -38,10 +39,10 @@ int main()
         switch(doorChoice)
         {
             case 1:
-                jakeRoom = jgrout(user);
+                jakeRoom = jgrout(&user);
                 break;
             case 2:
-                seanRoom = ssoberoi(user);
+                seanRoom = ssoberoi(&user);
                 break;
             default:
                 cout << "Invalid choice, exiting now!" << endl;

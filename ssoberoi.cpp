@@ -3,7 +3,7 @@
 
 using namespace std;
 
-Hero ssoberoi(Hero protagonist)
+Hero ssoberoi(Hero* protagonist)
 {
     int choice;
     bool isValid;
@@ -28,7 +28,7 @@ Hero ssoberoi(Hero protagonist)
         }
     }
 
-    return protagonist;
+    return *protagonist;
 };
 
 bool validateChoice(int option1, int option2, int choice)
@@ -43,39 +43,39 @@ bool validateChoice(int option1, int option2, int choice)
     }
 }
 
-Hero fightMonster(Hero protagonist)
+Hero fightMonster(Hero* protagonist)
 {
     cout << "You defeated the monster but at the expense of 30 health points!" << endl;
-    protagonist.health -= 30;
-    cout << "Your current health now is " << protagonist.health << "!" << endl;
+    protagonist->health -= 30;
+    cout << "Your current health now is " << protagonist->health << "!" << endl;
 
     openChest(protagonist);
 
-    return protagonist;
+    return *protagonist;
 }
 
-Hero fleeScene(Hero protagonist)
+Hero fleeScene(Hero* protagonist)
 {
     cout << "The monster scraped your leg while you were trying to escape! Oh no!" << endl;
-    protagonist.health -= 10;
+    protagonist->health -= 10;
     exitRoom(protagonist);
 
-    return protagonist;
+    return *protagonist;
 }
 
-Hero openChest(Hero protagonist)
+Hero openChest(Hero* protagonist)
 {
     cout << "You found a health potion (10 health pts) and 10 gold, congrats!" << endl;
-    protagonist.gold += 10;
-    protagonist.health += 10;
+    protagonist->gold += 10;
+    protagonist->health += 10;
     exitRoom(protagonist);
 
-    return protagonist;
+    return *protagonist;
 }
 
-Hero exitRoom(Hero protagonist)
+Hero exitRoom(Hero* protagonist)
 {
-    cout << "You now have " << protagonist.health << " health and " << protagonist.gold << " gold, you exit the room." << endl;
+    cout << "You now have " << protagonist->health << " health and " << protagonist->gold << " gold, you exit the room." << endl;
 
-    return protagonist;
+    return *protagonist;
 }

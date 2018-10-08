@@ -3,7 +3,7 @@
 
 using namespace std;
 
-Hero jgrout(Hero protagonist)
+Hero jgrout(Hero* protagonist)
 {
     int choice;
     bool isValid;
@@ -31,7 +31,7 @@ Hero jgrout(Hero protagonist)
         }
     }
     
-    return protagonist;
+    return *protagonist;
 };
 
 bool checkChoice(int option1, int option2, int option3, int choice)
@@ -46,21 +46,21 @@ bool checkChoice(int option1, int option2, int option3, int choice)
     }
 }
 
-Hero openDoor(Hero protagonist)
+Hero openDoor(Hero* protagonist)
 {
     cout << "Sitting in the middle of the room is the chest." << endl;
     enterChest2(protagonist);
     
-    return protagonist;
+    return *protagonist;
 }
 
-Hero enterChest(Hero protagonist)
+Hero enterChest(Hero* protagonist)
 {
     int choice;
 
     cout << "You found a health potion (10 health pts) and 10 gold, congrats!" << endl;
-    protagonist.gold += 10;
-    protagonist.health += 10;
+    protagonist->gold += 10;
+    protagonist->health += 10;
 
     cout << "You can either go through the door across the room (1), or Leave through the door you came through (2)."<< endl;
     cin >> choice;
@@ -78,23 +78,23 @@ Hero enterChest(Hero protagonist)
 
     }
     
-    return protagonist;
+    return *protagonist;
 }
 
-Hero enterChest2(Hero protagonist)
+Hero enterChest2(Hero* protagonist)
 {
     cout << "You found a health potion (10 health pts) and 10 gold, congrats!" << endl;
-    protagonist.gold += 10;
-    protagonist.health += 10;
+    protagonist->gold += 10;
+    protagonist->health += 10;
 
     leaveRoom(protagonist);
 
-    return protagonist;
+    return *protagonist;
 }
 
-Hero leaveRoom(Hero protagonist)
+Hero leaveRoom(Hero* protagonist)
 {
-    cout << "You now have " << protagonist.health << " health and " << protagonist.gold << " gold, you exit the room." << endl;
+    cout << "You now have " << protagonist->health << " health and " << protagonist->gold << " gold, you exit the room." << endl;
 
-    return protagonist;
+    return *protagonist;
 }
