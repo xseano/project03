@@ -56,8 +56,12 @@ Hero fightMonster(Hero* protagonist)
 
 Hero fleeScene(Hero* protagonist)
 {
-    cout << "The monster scraped your leg while you were trying to escape! Oh no!" << endl;
-    protagonist->health -= 10;
+    int damage = getRandomAmount(60);
+
+    cout << "The monster scraped your leg while you were trying to escape! You lost " << damage << " pts of health!" << endl;
+
+    protagonist->health -= damage;
+
     exitRoom(protagonist);
 
     return *protagonist;
@@ -68,7 +72,7 @@ Hero openChest(Hero* protagonist)
     int newGold = getRandomAmount(50);
     int newHealth = getRandomAmount(25);
     
-    cout << "You found a health potion and gold sack giving you +" << newHealth << " health pts and +" << newGold << " gold." << endl;
+    cout << "Opening the chest, you find a health potion and gold sack giving you +" << newHealth << " health pts and +" << newGold << " gold." << endl;
 
     protagonist->gold += newGold;
     protagonist->health += newHealth;

@@ -31,6 +31,7 @@ Hero initialize(Hero hero, string name);
 int playGame(Hero* protagonist, World* area, int doorChoice);
 int endGame(Hero* protagonist, World* area);
 bool checkDoorChoice(int choice);
+bool checkAreaVisited(int target, World* area);
 string getAction(int val);
 
 // Global

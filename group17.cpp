@@ -57,7 +57,16 @@ int main()
             }
             else
             {
-                playGame(&user, &area, doorChoice);
+                // check area is visited already
+                if (checkAreaVisited(doorChoice, &area) == false)
+                {
+                    // room has not been visited yet
+                    playGame(&user, &area, doorChoice);
+                }
+                else
+                {
+                    cout << "You've already visited this room, please choose another!" << endl;
+                }
             }
         }
         else
@@ -65,6 +74,35 @@ int main()
             break;
         }
     }
+}
+
+bool checkAreaVisited(int target, World* area)
+{
+    if (target == 1)
+    {
+        if (area->room1 == false)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    if (target == 2)
+    {
+        if (area->room2 == false)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    return true;
 }
 
 bool checkDoorChoice(int choice)
@@ -96,7 +134,7 @@ int playGame(Hero* user, World* area, int doorChoice)
             seanRoom = ssoberoi(user);
             break;
         default:
-            cout << "Invalid choice, try again!" << endl;
+            cout << "Nonexistent room, please try again!" << endl;
             break;
     }
 
