@@ -22,12 +22,6 @@ int main()
     user = initialize(user, name);
 
     Hero sean;
-    sean = ssoberoi(sean);
-
-    Hero jake;
-    jake = jgrout(jake);
-
-    Hero ahmad;
-    ahmad = afajhan(ahmad);
+    sean = ssoberoi(user);
 
 }
