@@ -22,6 +22,6 @@ int main()
     user = initialize(user, name);
 
     Hero sean;
-    sean = ssoberoi(user);
+    sean = jgrout(user);
 
 }
