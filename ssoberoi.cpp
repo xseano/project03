@@ -65,17 +65,15 @@ Hero fleeScene(Hero* protagonist)
 
 Hero openChest(Hero* protagonist)
 {
-    cout << "You found a health potion (10 health pts) and 10 gold, congrats!" << endl;
-    protagonist->gold += 10;
-    protagonist->health += 10;
+    int newGold = getRandomAmount(50);
+    int newHealth = getRandomAmount(25);
+    
+    cout << "You found a large health potion and small gold sack giving you +" << newHealth <<" health pts and +" << newGold << " gold." << endl;
+
+    protagonist->gold += newGold;
+    protagonist->health += newHealth;
+
     exitRoom(protagonist);
-
-    return *protagonist;
-}
-
-Hero exitRoom(Hero* protagonist)
-{
-    cout << "You now have " << protagonist->health << " health and " << protagonist->gold << " gold, you exit the room." << endl;
 
     return *protagonist;
 }

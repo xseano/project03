@@ -33,18 +33,20 @@ int endGame(Hero* protagonist, World* area);
 bool checkDoorChoice(int choice);
 string getAction(int val);
 
+// Global
+int getRandomAmount(int max);
+Hero exitRoom(Hero* protagonist);
+
 //Jake
 Hero openDoor(Hero* protagonist);
 bool checkChoice(int option1, int option2, int option3, int choice);
 Hero enterChest(Hero* protagonist);
 Hero enterChest2(Hero* protagonist);
-Hero leaveRoom(Hero* protagonist);
 
 // Sean
 Hero openChest(Hero* protagonist);
 Hero fightMonster(Hero* protagonist);
 Hero fleeScene(Hero* protagonist);
-Hero exitRoom(Hero* protagonist);
 bool validateChoice(int option1, int option2, int choice);
 
 #endif

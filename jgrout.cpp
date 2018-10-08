@@ -24,7 +24,7 @@ Hero jgrout(Hero* protagonist)
                 openDoor(protagonist);
                 break;
             case 3:
-                leaveRoom(protagonist);
+                exitRoom(protagonist);
                 break;
             default:
                 break;
@@ -58,11 +58,11 @@ Hero enterChest(Hero* protagonist)
 {
     int choice;
 
-    cout << "You found a health potion (10 health pts) and 10 gold, congrats!" << endl;
-    protagonist->gold += 10;
-    protagonist->health += 10;
+    cout << "You found a health potion (5 health pts) and 25 gold, congrats!" << endl;
+    protagonist->gold += 25;
+    protagonist->health += 5;
 
-    cout << "You can either go through the door across the room (1), or Leave through the door you came through (2)."<< endl;
+    cout << "You can either go through the door across the room (1), or leave through the door you came through (2)."<< endl;
     cin >> choice;
 
     switch(choice)
@@ -71,7 +71,7 @@ Hero enterChest(Hero* protagonist)
             openDoor(protagonist);
             break;
         case 2:
-            leaveRoom(protagonist);
+            exitRoom(protagonist);
             break;
         default:
             break;
@@ -87,14 +87,7 @@ Hero enterChest2(Hero* protagonist)
     protagonist->gold += 10;
     protagonist->health += 10;
 
-    leaveRoom(protagonist);
-
-    return *protagonist;
-}
-
-Hero leaveRoom(Hero* protagonist)
-{
-    cout << "You now have " << protagonist->health << " health and " << protagonist->gold << " gold, you exit the room." << endl;
+    exitRoom(protagonist);
 
     return *protagonist;
 }

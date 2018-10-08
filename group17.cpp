@@ -96,7 +96,7 @@ int playGame(Hero* user, World* area, int doorChoice)
             seanRoom = ssoberoi(user);
             break;
         default:
-            cout << "Invalid choice, exiting now!" << endl;
+            cout << "Invalid choice, try again!" << endl;
             break;
     }
 
