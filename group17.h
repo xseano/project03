@@ -1,14 +1,12 @@
+#include <iostream>
+
 #ifndef GROUP17_H
 #define GROUP17_H
 #define ROOM_LEN 4
 
-#include <iostream>
-using namespace std;
-
-
 struct Hero
 {
-    string name;
+    std::string name;
     int health;
     int gold;
     bool key;
@@ -25,14 +23,14 @@ struct World
 Hero jgrout(Hero* protagonist);
 Hero ssoberoi(Hero* protagonist);
 Hero afajhan(Hero* protagonist);
-Hero initialize(Hero hero, string name);
+Hero initialize(Hero hero, std::string name);
 
 // Main
 int playGame(Hero* protagonist, World* area, int doorChoice);
 int endGame(Hero* protagonist, World* area);
 bool checkDoorChoice(int choice);
 bool checkAreaVisited(int target, World* area);
-string getAction(int val);
+std::string getAction(int val);
 
 // Global
 int getRandomAmount(int max);
