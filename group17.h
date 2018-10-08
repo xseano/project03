@@ -18,6 +18,9 @@ Hero ssoberoi(Hero protagonist);
 Hero afajhan(Hero protagonist);
 Hero initialize(Hero hero, string name);
 
+// Main
+bool checkDoorChoice(int choice);
+
 //Jake
 Hero openDoor(Hero protagonist);
 bool checkChoice(int option1, int option2, int option3, int choice);
