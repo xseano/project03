@@ -1,5 +1,4 @@
 #include "group17.h"
-#define INVENTORY_LEN 2
 
 Hero initialize(Hero user, string name)
 {

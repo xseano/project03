@@ -1,4 +1,3 @@
-#include <iostream>
 #include "group17.h"
 
 using namespace std;
