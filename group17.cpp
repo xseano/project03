@@ -1,6 +1,5 @@
 #include "group17.h"
 #define INVENTORY_LEN 2
-#define ROOM_LEN 4
 
 Hero initialize(Hero user, string name)
 {
@@ -12,6 +11,16 @@ Hero initialize(Hero user, string name)
     return user;
 }
 
+World generate(World area)
+{
+    area.room1 = false;
+    area.room2 = false;
+    area.room3 = false;
+    area.room4 = false;
+
+    return area;
+}
+
 int main()
 {
     int doorChoice;
@@ -19,6 +28,9 @@ int main()
 
     cout << "Choose your name: " << endl;
     cin >> name;
+
+    World area;
+    area = generate(area);
 
     Hero user;
     user = initialize(user, name);
@@ -28,7 +40,7 @@ int main()
 
     if (checkDoorChoice(doorChoice) == true)
     {
-        playGame(&user, doorChoice);   
+        playGame(&user, &area, doorChoice);   
     }
 
     while(true)
@@ -40,12 +52,12 @@ int main()
         {
             if (doorChoice == 4)
             {
-                endGame(&user);
+                endGame(&user, &area);
                 break;
             }
             else
             {
-                playGame(&user, doorChoice);
+                playGame(&user, &area, doorChoice);
             }
         }
         else
@@ -67,7 +79,7 @@ bool checkDoorChoice(int choice)
     }
 }
 
-int playGame(Hero* user, int doorChoice)
+int playGame(Hero* user, World* area, int doorChoice)
 {
     // Rooms
     Hero seanRoom;
@@ -76,9 +88,11 @@ int playGame(Hero* user, int doorChoice)
     switch(doorChoice)
     {
         case 1:
+            area->room1 = true;
             jakeRoom = jgrout(user);
             break;
         case 2:
+            area->room2 = true;
             seanRoom = ssoberoi(user);
             break;
         default:
@@ -89,7 +103,7 @@ int playGame(Hero* user, int doorChoice)
     return 0;
 }
 
-int endGame(Hero* user)
+int endGame(Hero* user, World* area)
 {
     cout << "========== RESULTS ============" << endl;
 
@@ -97,7 +111,23 @@ int endGame(Hero* user)
     cout << "Gold: " << user->gold << endl;
     cout << "Key: " << user->key << endl;
 
+    cout << "You " << getAction(area->room1)  << " room 1." << endl;
+    cout << "You " << getAction(area->room2)  << " room 2." << endl;
+    cout << "You " << getAction(area->room3)  << " room 3." << endl;
+
     cout << "=============================" << endl;
 
     return 0;
+}
+
+string getAction(int val)
+{
+    if (val == true)
+    {
+        return "entered";
+    }
+    else
+    {
+        return "did not enter";
+    }
 }

@@ -1,5 +1,6 @@
 #ifndef GROUP17_H
 #define GROUP17_H
+#define ROOM_LEN 4
 
 #include <iostream>
 using namespace std;
@@ -13,15 +14,24 @@ struct Hero
     bool key;
 };
 
+struct World
+{
+    bool room1;
+    bool room2;
+    bool room3;
+    bool room4;
+};
+
 Hero jgrout(Hero* protagonist);
 Hero ssoberoi(Hero* protagonist);
 Hero afajhan(Hero* protagonist);
 Hero initialize(Hero hero, string name);
 
 // Main
-int playGame(Hero* protagonist, int doorChoice);
-int endGame(Hero* protagonist);
+int playGame(Hero* protagonist, World* area, int doorChoice);
+int endGame(Hero* protagonist, World* area);
 bool checkDoorChoice(int choice);
+string getAction(int val);
 
 //Jake
 Hero openDoor(Hero* protagonist);
