@@ -10,12 +10,12 @@ Hero initialize(Hero user, string name)
     return user;
 }
 
-World generate(World area)
+Grid generate(Grid area)
 {
-    area.room1 = false;
-    area.room2 = false;
-    area.room3 = false;
-    area.room4 = false;
+    area.zone_1 = false;
+    area.zone_2 = false;
+    area.zone_3 = false;
+    area.zone_4 = false;
 
     return area;
 }
@@ -28,7 +28,7 @@ int main()
     cout << "Choose your name: " << endl;
     cin >> name;
 
-    World area;
+    Grid area;
     area = generate(area);
 
     Hero user;
@@ -75,11 +75,11 @@ int main()
     }
 }
 
-bool checkAreaVisited(int target, World* area)
+bool checkAreaVisited(int target, Grid* area)
 {
     if (target == 1)
     {
-        if (area->room1 == false)
+        if (area->zone_1 == false)
         {
             return false;
         }
@@ -91,7 +91,7 @@ bool checkAreaVisited(int target, World* area)
 
     if (target == 2)
     {
-        if (area->room2 == false)
+        if (area->zone_2 == false)
         {
             return false;
         }
@@ -116,7 +116,7 @@ bool checkDoorChoice(int choice)
     }
 }
 
-int playGame(Hero* user, World* area, int doorChoice)
+int playGame(Hero* user, Grid* area, int doorChoice)
 {
     // Rooms
     Hero seanRoom;
@@ -125,11 +125,11 @@ int playGame(Hero* user, World* area, int doorChoice)
     switch(doorChoice)
     {
         case 1:
-            area->room1 = true;
+            area->zone_1 = true;
             jakeRoom = jgrout(user);
             break;
         case 2:
-            area->room2 = true;
+            area->zone_2 = true;
             seanRoom = ssoberoi(user);
             break;
         default:
@@ -140,7 +140,7 @@ int playGame(Hero* user, World* area, int doorChoice)
     return 0;
 }
 
-int endGame(Hero* user, World* area)
+int endGame(Hero* user, Grid* area)
 {
     cout << "========== RESULTS ============" << endl;
 
@@ -148,9 +148,9 @@ int endGame(Hero* user, World* area)
     cout << "Gold: " << user->gold << endl;
     cout << "Key: " << user->key << endl;
 
-    cout << "You " << getAction(area->room1)  << " room 1." << endl;
-    cout << "You " << getAction(area->room2)  << " room 2." << endl;
-    cout << "You " << getAction(area->room3)  << " room 3." << endl;
+    cout << "You " << getAction(area->zone_1)  << " room 1." << endl;
+    cout << "You " << getAction(area->zone_2)  << " room 2." << endl;
+    cout << "You " << getAction(area->zone_3)  << " room 3." << endl;
 
     cout << "=============================" << endl;
 

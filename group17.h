@@ -15,12 +15,12 @@ struct Hero
     bool key;
 };
 
-struct World
+struct Grid
 {
-    bool room1;
-    bool room2;
-    bool room3;
-    bool room4;
+    bool zone_1;
+    bool zone_2;
+    bool zone_3;
+    bool zone_4;
 };
 
 Hero jgrout(Hero* protagonist);
@@ -29,10 +29,10 @@ Hero afajhan(Hero* protagonist);
 Hero initialize(Hero hero, string name);
 
 // Main
-int playGame(Hero* protagonist, World* area, int doorChoice);
-int endGame(Hero* protagonist, World* area);
+int playGame(Hero* protagonist, Grid* area, int doorChoice);
+int endGame(Hero* protagonist, Grid* area);
 bool checkDoorChoice(int choice);
-bool checkAreaVisited(int target, World* area);
+bool checkAreaVisited(int target, Grid* area);
 string getAction(int val);
 
 // Global
