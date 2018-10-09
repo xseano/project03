@@ -1,4 +1,8 @@
 #include <iostream>
+#include <set>
+#include <algorithm>
+#include <iterator>
+#include <vector>
 using namespace std;
 
 #ifndef GROUP17_H
@@ -37,7 +41,7 @@ string getAction(int val);
 
 // Global
 int getRandomAmount(int max);
-bool validateChoice(int option1, int option2, int choice);
+bool validateChoice(vector<int>, int choice);
 Hero exitRoom(Hero* protagonist);
 
 //Jake

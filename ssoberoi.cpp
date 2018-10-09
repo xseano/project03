@@ -8,7 +8,11 @@ Hero ssoberoi(Hero* protagonist)
     cout << "You entered a dark spooky room, there's a monster and a chest, to unlock the chest you must fight the monster (1) or you may leave the room through the door you came in (2): " << endl;
     cin >> choice;
 
-    isValid = validateChoice(1, 2, choice);
+    vector<int> options;
+    options.push_back(1);
+    options.push_back(2);
+
+    isValid = validateChoice(options, choice);
 
     if (isValid == true)
     {
@@ -23,6 +27,10 @@ Hero ssoberoi(Hero* protagonist)
             default:
                 break;
         }
+    }
+    else
+    {
+        cout << "Invalid choice, please try again!";
     }
 
     return *protagonist;

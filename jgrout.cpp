@@ -8,7 +8,12 @@ Hero jgrout(Hero* protagonist)
     cout << "You entered a cellar with a chest and two doors. \nYou can open the chest (1), go through the door across from you (2), or leave through the door you came from (3): " << endl;
     cin >> choice;
 
-    isValid = checkChoice(1, 2, 3, choice);
+    vector<int> options;
+    options.push_back(1);
+    options.push_back(2);
+    options.push_back(3);
+
+    isValid = validateChoice(options, choice);
 
     if (isValid == true)
     {
@@ -27,6 +32,10 @@ Hero jgrout(Hero* protagonist)
                 break;
         }
     }
+    else
+    {
+        cout << "Invalid choice, please try again!";
+    }
     
     return *protagonist;
 };
@@ -42,6 +51,7 @@ Hero openDoor(Hero* protagonist)
 Hero enterChest(Hero* protagonist)
 {
     int choice;
+    bool isValid;
     int newGold = getRandomAmount(50);
     int newHealth = getRandomAmount(25);
 
@@ -53,19 +63,27 @@ Hero enterChest(Hero* protagonist)
     cout << "You can either go through the door across the room (1), or leave through the door you came through (2)."<< endl;
     cin >> choice;
 
-    switch(choice)
-    {
-        case 1:
-            openDoor(protagonist);
-            break;
-        case 2:
-            exitRoom(protagonist);
-            break;
-        default:
-            break;
+    vector<int> options;
+    options.push_back(1);
+    options.push_back(2);
 
+    isValid = validateChoice(options, choice);
+
+    if (isValid == true)
+    {
+        switch(choice)
+        {
+            case 1:
+                openDoor(protagonist);
+                break;
+            case 2:
+                exitRoom(protagonist);
+                break;
+            default:
+                break;
+        }
     }
-    
+        
     return *protagonist;
 }
 

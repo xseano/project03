@@ -7,9 +7,11 @@ Hero exitRoom(Hero* protagonist)
     return *protagonist;
 }
 
-bool validateChoice(int options[], int choice)
+bool validateChoice(vector<int> options, int choice)
 {
-    if (choice == option1 || choice == option2)
+    bool inRange = find(begin(options), end(options), choice) != end(options);
+
+    if (inRange)
     {
         return true;
     }
