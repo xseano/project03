@@ -37,11 +37,11 @@ string getAction(int val);
 
 // Global
 int getRandomAmount(int max);
+bool validateChoice(int option1, int option2, int choice);
 Hero exitRoom(Hero* protagonist);
 
 //Jake
 Hero openDoor(Hero* protagonist);
-bool checkChoice(int option1, int option2, int option3, int choice);
 Hero enterChest(Hero* protagonist);
 Hero enterChest2(Hero* protagonist);
 
@@ -49,6 +49,5 @@ Hero enterChest2(Hero* protagonist);
 Hero openChest(Hero* protagonist);
 Hero fightMonster(Hero* protagonist);
 Hero fleeScene(Hero* protagonist);
-bool validateChoice(int option1, int option2, int choice);
 
 #endif

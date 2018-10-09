@@ -28,18 +28,6 @@ Hero ssoberoi(Hero* protagonist)
     return *protagonist;
 };
 
-bool validateChoice(int option1, int option2, int choice)
-{
-    if (choice == option1 || choice == option2)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-}
-
 Hero fightMonster(Hero* protagonist)
 {
     cout << "You defeated the monster but at the expense of 30 health points!" << endl;

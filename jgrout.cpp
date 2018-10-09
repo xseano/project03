@@ -31,18 +31,6 @@ Hero jgrout(Hero* protagonist)
     return *protagonist;
 };
 
-bool checkChoice(int option1, int option2, int option3, int choice)
-{
-    if (choice == option1 || choice == option2 || choice == option3)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-}
-
 Hero openDoor(Hero* protagonist)
 {
     cout << "Sitting in the middle of the room is the chest." << endl;
