@@ -101,6 +101,18 @@ bool checkAreaVisited(int target, Grid* area)
         }
     }
 
+    if (target == 3)
+    {
+        if (area->zone_3 == false)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
     return true;
 }
 
@@ -121,6 +133,7 @@ int playGame(Hero* user, Grid* area, int doorChoice)
     // Rooms
     Hero seanRoom;
     Hero jakeRoom;
+    Hero afaRoom;
 
     switch(doorChoice)
     {
@@ -131,6 +144,10 @@ int playGame(Hero* user, Grid* area, int doorChoice)
         case 2:
             area->zone_2 = true;
             seanRoom = ssoberoi(user);
+            break;
+        case 3:
+            area->zone_3 = true;
+            afaRoom = afajhan(user);
             break;
         default:
             cout << "Nonexistent room, please try again!" << endl;
