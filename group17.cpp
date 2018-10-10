@@ -5,7 +5,6 @@ Hero initialize(Hero user, string name)
     user.name = name;
     user.health = 100;
     user.gold = 0;
-    user.key = false;
 
     return user;
 }
@@ -163,7 +162,6 @@ int endGame(Hero* user, Grid* area)
 
     cout << "Health: " << user->health << endl;
     cout << "Gold: " << user->gold << endl;
-    cout << "Key: " << user->key << endl;
 
     cout << "You " << getAction(area->zone_1)  << " room 1." << endl;
     cout << "You " << getAction(area->zone_2)  << " room 2." << endl;

@@ -1,8 +1,5 @@
 #include "group17.h"
 
-void fightMonster(Hero* protagonist, bool armed);
-bool inRange(int value, int upper, int lower);
-
 Hero afajhan(Hero* protagonist)
 {
   int choice;

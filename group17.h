@@ -15,7 +15,6 @@ struct Hero
     string name;
     int health;
     int gold;
-    bool key;
 };
 
 struct Grid
@@ -47,6 +46,10 @@ Hero exitRoom(Hero* protagonist);
 Hero openDoor(Hero* protagonist);
 Hero enterChest(Hero* protagonist);
 Hero enterChest2(Hero* protagonist);
+
+// Ahmad
+void fightMonster(Hero* protagonist, bool armed);
+bool inRange(int value, int upper, int lower);
 
 // Sean
 Hero openChest(Hero* protagonist);
