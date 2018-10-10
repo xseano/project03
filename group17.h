@@ -51,7 +51,7 @@ Hero enterChest(Hero* protagonist);
 Hero enterChest2(Hero* protagonist);
 
 // Ahmad
-void fightMonster(Hero* protagonist, bool armed);
+void attackMonster(Hero* protagonist);
 bool inRange(int value, int upper, int lower);
 
 // Sean

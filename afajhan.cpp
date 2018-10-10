@@ -7,7 +7,8 @@ Hero afajhan(Hero* protagonist)
 
   cout << "\nYou entered a dark hallway." << endl;
 
-  if (rand() % 2) {
+  if (true) 
+  {
     cout << "You found a machete on the ground with blood stains on it."
       << endl;
     do {
@@ -41,7 +42,7 @@ Hero afajhan(Hero* protagonist)
       if (!inRange(choice, 1, 2))
         cout << "Please choose 1 or 2." << endl;
       else if (choice == 1) {
-        fightMonster(protagonist);
+        attackMonster(protagonist);
       }
       else if (choice == 2) {
         cout << "You leave this creepy place." << endl;
@@ -53,7 +54,7 @@ Hero afajhan(Hero* protagonist)
 }
 
 
-void fightMonster(Hero& protagonist)
+void attackMonster(Hero* protagonist)
 {
   bool imAlive = true, monsterAlive = true;
   int monsterHealth = 100;
