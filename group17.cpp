@@ -5,6 +5,7 @@ Hero initialize(Hero user, string name)
     user.name = name;
     user.health = 100;
     user.gold = 0;
+    user.key = false;
 
     return user;
 }
@@ -48,23 +49,15 @@ int main()
 
         if (checkDoorChoice(doorChoice) == true)
         {
-            if (doorChoice == 4)
+            // check area is visited already
+            if (checkAreaVisited(doorChoice, &area) == false)
             {
-                endGame(&user, &area);
-                break;
+                // room has not been visited yet
+                playGame(&user, &area, doorChoice);
             }
             else
             {
-                // check area is visited already
-                if (checkAreaVisited(doorChoice, &area) == false)
-                {
-                    // room has not been visited yet
-                    playGame(&user, &area, doorChoice);
-                }
-                else
-                {
-                    cout << "You've already visited this room, please choose another!" << endl;
-                }
+                cout << "You've already visited this room, please choose another!" << endl;
             }
         }
         else
@@ -112,6 +105,18 @@ bool checkAreaVisited(int target, Grid* area)
         }
     }
 
+    if (target == 4)
+    {
+        if (area->zone_4 == false)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
     return true;
 }
 
@@ -148,13 +153,45 @@ int playGame(Hero* user, Grid* area, int doorChoice)
             area->zone_3 = true;
             afaRoom = afajhan(user);
             break;
+        case 4:
+            handleExit(user, area);
+            break;
         default:
             cout << "Nonexistent room, please try again!" << endl;
             break;
     }
 
+    if ((area->zone_1 == true) && (area->zone_2 == true) && (area->zone_3 == true))
+    {
+        giveKey(user);
+    }
+
     return 0;
 }
+
+int giveKey(Hero* user)
+{
+    cout << "After visiting all three rooms, a magical key appears before you!" << endl;
+    user->key = true;
+
+    return 0;
+}
+
+int handleExit(Hero* user, Grid* area)
+{
+    if (user->key == true)
+    {
+        area->zone_4 = true;
+        cout << "The magical key unlocks the door, revealing a paradise!" << endl;
+        endGame(user, area);
+    }
+    else
+    {
+        cout << "You must have a magical key to open this door, try searching around the area!" << endl;
+    }
+
+    return 0;
+};
 
 int endGame(Hero* user, Grid* area)
 {
@@ -162,10 +199,12 @@ int endGame(Hero* user, Grid* area)
 
     cout << "Health: " << user->health << endl;
     cout << "Gold: " << user->gold << endl;
+    cout << "Key: " << user->key << endl;
 
     cout << "You " << getAction(area->zone_1)  << " room 1." << endl;
     cout << "You " << getAction(area->zone_2)  << " room 2." << endl;
     cout << "You " << getAction(area->zone_3)  << " room 3." << endl;
+    cout << "You " << getAction(area->zone_4)  << " room 4." << endl;
 
     cout << "=============================" << endl;
 
