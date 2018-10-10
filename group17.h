@@ -35,7 +35,6 @@ Hero initialize(Hero hero, string name);
 int playGame(Hero* protagonist, Grid* area, int doorChoice);
 int endGame(Hero* protagonist, Grid* area);
 int giveKey(Hero* protagonist);
-int handleExit(Hero* protagonist, Grid* area);
 bool checkDoorChoice(int choice);
 bool checkAreaVisited(int target, Grid* area);
 string getAction(int val);
